@@ -30,6 +30,14 @@ Route::get('/cardtes', function () {
     return view('cardtes');
 });
 
+Route::get('/logintes', function () {
+    return view('logintes');
+});
+
+Route::get('/registertes', function () {
+    return view('registertes');
+});
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
