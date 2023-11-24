@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,9 @@ Route::get('/registertes', function () {
 Route::get('/editprofile', function () {
     return view('editprofile');
 });
+
+Route::get('/daftaruser', [\App\Http\Controllers\UsersController::class, 'index'])->middleware(['auth', 'verified'])->name('user');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
