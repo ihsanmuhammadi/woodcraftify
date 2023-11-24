@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\KustomisasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,8 @@ Route::get('/editprofile', function () {
 
 Route::get('/daftaruser', [\App\Http\Controllers\UsersController::class, 'index'])->middleware(['auth', 'verified'])->name('user');
 
+// Menampilkan form kustomisasi
+Route::get('/kustomisasi', [\App\Http\Controllers\KustomisasiController::class, 'create'])->middleware(['auth', 'verified'])->name('kustomisasi');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -22,7 +22,10 @@ class UsersDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            ->setRowId('id');
+            ->setRowId('id')
+            ->addColumn('action', function ($data) {
+                return $this->getActionColumn($data);
+            });
     }
 
     /**
@@ -56,7 +59,15 @@ class UsersDataTable extends DataTable
             Column::make('id'),
             Column::make('name')
                 ->title('Nama'),
-            Column::make('email')
+            Column::make('email'),
+            Column::computed('action')
+                ->title('Delete Data')
+                ->exportable(false)
+                ->printable(false)
+                ->width(60)
+                ->addClass('text-center')
+                ->orderable(false)
+                ->searchable(false)
         ];
     }
 
@@ -66,5 +77,10 @@ class UsersDataTable extends DataTable
     protected function filename(): string
     {
         return 'Users_' . date('YmdHis');
+    }
+
+    protected function getActionColumn($data): string {
+        $showUrl = route('dashboard', $data->id);
+        return "<a class='waves-effect btn btn-danger' data-value='$data->id'href='$showUrl'><a class = 'material-icons'>Delete</a>";
     }
 }
