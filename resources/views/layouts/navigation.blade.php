@@ -23,7 +23,14 @@
                     <img src="/img/cari.png" alt="" width="40">
                 </div>
                 <div class="ml-4">
-                    <img src="/img/contact.png" alt="" width="40">
+                    <div class="dropdown">
+                        <img src="/img/contact.png" alt="" width="40" data-bs-toggle="dropdown" aria-expanded="false">
+                        <ul class="dropdown-menu" style="min-width: 10px;">
+                            <!-- Add your dropdown menu items here -->
+                            <li><a class="dropdown-item" href="#">Edit Profil</a></li>
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
