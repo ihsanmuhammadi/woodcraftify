@@ -26,18 +26,11 @@
                             <label for="text2" class="fw-bold text-light mb-1 fs-5">DESKRIPSI</label>
                             <input type="text" name="text2" class="form-control rounded-3" id="text2" placeholder="Deskripsi">
                         </div>
-                        <button type="button" class="btn btn-custom btn-lg fw-bold w-100" style="border-radius: 15px" onclick="submitForms()">AJUKAN</button>
-                        <p class="mt-2" style="color: var(--csk-776-a-3-c-800, #443D22);">Tidak memiliki referensi? <a class="fw-bold" href="">Pilih Template</a></p>
-                    </form>
-
-                </div>
-                {{-- image input --}}
-                <div class="d-flex col-md-4 justify-content-center mb-4">
-                    <form id="imageForm" action="{{ route('user') }}" method="post" enctype="multipart/form-data">
-                        @csrf
-                        <div class="card" style="width: 17rem;">
+                        <div class="card mb-3" style="width: 17rem;">
                             <input type="file" name="image" accept="image/*" class="card-img-top" style="cursor: pointer;" onchange="previewImage(this);">
                         </div>
+                        <button type="button" class="btn btn-custom btn-lg fw-bold w-100" style="border-radius: 15px" onclick="submitForms()">AJUKAN</button>
+                        <p class="mt-2" style="color: var(--csk-776-a-3-c-800, #443D22);">Tidak memiliki referensi? <a class="fw-bold" href="">Pilih Template</a></p>
                     </form>
                 </div>
             </div>
